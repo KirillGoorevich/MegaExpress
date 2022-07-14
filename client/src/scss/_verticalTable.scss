@@ -1,0 +1,77 @@
+// css from https://codepen.io/veekungx/pen/MWgvBxe
+
+.vertical-table {
+  display: -ms-grid;
+  -ms-grid-rows: auto auto;
+  -ms-grid-columns: auto auto;
+  border-collapse: collapse;
+}
+.vertical-table thead {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+}
+.vertical-table tbody {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+}
+.vertical-table caption {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+}
+
+/* Everyone Else's Grid */
+@supports (display: grid) {
+  .vertical-table {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "caption caption"
+      "head body";
+  }
+  .vertical-table thead {
+    grid-area: head;
+  }
+  .vertical-table tbody {
+    grid-area: body;
+  }
+  .vertical-table caption {
+    grid-area: caption;
+  }
+}
+
+/* Flex - Cross Browser CSS */
+.vertical-table thead {
+  display: flex;
+  flex-shrink: 0;
+  min-width: min-content;
+}
+.vertical-table tbody {
+  display: flex;
+}
+.vertical-table tr {
+  display: flex;
+  flex-direction: column;
+  min-width: min-content;
+  flex-shrink: 0;
+  border: 1px solid black;
+}
+.vertical-table td,
+.vertical-table th {
+  display: block;
+  text-align: center;
+  padding: 10px;
+}
+.vertical-table caption {
+  display: block;
+}
+
+.vertical-table td {
+  border: 0px solid black;
+}
+.vertical-table th {
+  border: 0px solid black;
+  background-color: rgb(13, 110, 253);
+  color: white;
+}
