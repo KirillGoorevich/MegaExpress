@@ -57,6 +57,12 @@ And if there are no login errors you should see the message painted in purple:
 
 You will need to provide a token to get an answer from this api
 
+#### To reset password for an existing user
+
+```http
+  POST /api/users/reset
+```
+
 #### To receive all business cards
 
 ```http
@@ -97,6 +103,38 @@ You will need to provide a token to get an answer from this api
 
 ```http
   DELETE /api/cards/:id
+```
+
+You will need to provide a token to get an answer from this api
+
+#### To like or dislike a card for a user
+
+```http
+  PATCH /api/cards/card-like/:id
+```
+
+You will need to provide a token to get an answer from this api
+
+#### To add or remove a card from cart for a user
+
+```http
+  PATCH /api/cards/cart/:id
+```
+
+You will need to provide a token to get an answer from this api
+
+#### To create an order for a user with a card in the database
+
+```http
+  POST /api/orders/
+```
+
+You will need to provide a token to get an answer from this api
+
+#### To receive all orders of a user in the database
+
+```http
+  GET /api/orders/orders/
 ```
 
 You will need to provide a token to get an answer from this api

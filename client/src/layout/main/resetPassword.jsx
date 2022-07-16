@@ -7,7 +7,7 @@ import { getCurrentUser, resetPassword } from "../../services/userService";
 import { Navigate } from "react-router-dom";
 
 //when it comes to cyber security this page is garbage not only is it accessable via URL, it also allows a hacker that merely knows an email to change the password,basically making passwords useless
-//perhaps sending a secret code to the email would help in this regard ,however email sent are sent to my address making this not an option.
+//perhaps sending a secret code to the email would help in this regard...
 //the best thing i can do is route this to a complex url such as:
 // "/reset-password/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVFBgVFRUZGRUaGxgaGxsZGxsbGh0a..."
 //maybe use a function to generate a random url
