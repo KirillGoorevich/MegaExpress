@@ -1,0 +1,23 @@
+
+$sidebar-bg-color: white;
+$sidebar-color: #adadad;
+$sidebar-width: 20em;
+$sidebar-collapsed-width: 80px !default;
+$highlight-color: #FF472E;
+$submenu-bg-color: white;
+$submenu-bg-color-collapsed: #2b2b2b !default;
+$icon-bg-color: white;
+$icon-size: 35px !default;
+$submenu-indent: 24px !default;
+$breakpoint-xs: 480px !default;
+$breakpoint-sm: 576px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-lg: 992px !default;
+$breakpoint-xl: 1200px !default;
+$breakpoint-xxl: 1600px !default;
+
+@import '~react-pro-sidebar/dist/scss/styles.scss';
+
+.pro-sidebar .pro-sidebar-inner{
+    border-radius: 8px;
+}
