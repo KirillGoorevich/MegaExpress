@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const chalk = require("chalk");
 
 mongoose
-  .connect("mongodb://localhost/business_card_app", {
+  .connect("mongodb://localhost/MegaExpress", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

@@ -27,10 +27,6 @@ const cardSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  user_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
   category: {
     type: String,
     required: true,
@@ -175,14 +171,18 @@ const cardSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  sellerId: {
-    type: String,
-    required: true,
-  },
   cart: [String],
   createdAt: {
     type: Date,
     default: Date.now,
+  },
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  sellerId: {
+    type: String,
+    required: true,
   },
 });
 
