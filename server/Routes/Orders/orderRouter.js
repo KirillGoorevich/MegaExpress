@@ -54,8 +54,8 @@ router.post("/", auth, async (req, res) => {
 
     order = await order.save();
     card = await Card.findById(order.card.cardId);
-    card.quantity = card.quantity - 1;
-    card.sold = card.sold + 1;
+    card.quantity = card.quantity - order.data.selectedQuantity;
+    card.sold = card.sold + order.data.selectedQuantity;
     const filter = {
       _id: order.card.cardId,
       userID: order.card.sellerId,

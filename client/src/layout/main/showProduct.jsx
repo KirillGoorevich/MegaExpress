@@ -219,7 +219,9 @@ class ShowProduct extends Component {
               selectedQuantity: this.state.selectedQuantity,
               selectedCountry: this.state.selectedCountry,
             }}
+            style={{display: (this.state.card.quantity !== 0) ? 'inline' : 'none' , }}
             ><button className="custom-btn-buy-now" >Buy Now</button></Link>
+            <button className="custom-btn-out-of-stock" disabled style={{display: (this.state.card.quantity === 0) ? 'inline' : 'none' , }}>Out Of Stock</button>
             <span>&nbsp;&nbsp;&nbsp;</span>
             <button className="custom-btn-add-to-cart" onClick={() => this.changeCartStatus(this.props.id)}>Add to Cart</button>
             </div>

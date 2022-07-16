@@ -43,9 +43,8 @@
 }
 
 .custom-btn-buy-now,
-.custom-btn-add-to-cart{
-  border: none; 
-  color: white; 
+.custom-btn-add-to-cart,
+.custom-btn-out-of-stock{
   padding: 0px; 
   text-decoration: none; 
   border-radius: 12px; 
@@ -54,10 +53,18 @@
   font-size: 20px;
 }
 .custom-btn-buy-now{
+  border: none; 
+  color: white; 
   background-color: red;
 }
 .custom-btn-add-to-cart{
+  border: none; 
+  color: white; 
   background-color: orange;
+}
+.custom-btn-out-of-stock{
+  border: 2px solid black;
+  color: black;
 }
 .order-div{
   margin: 1vw;
