@@ -39,7 +39,7 @@ class CatOrder extends CardExtends {
     return (
       <React.Fragment>
         <div style={{textAlign: "center",color: "#414244"}}>
-        <h1>Order By Category: {this.state.cat}.</h1>
+        <h1>Order By Category: {this.state.cat.charAt(0).toUpperCase() + this.state.cat.slice(1)}</h1>
         <h2>Here you can find Items by Catagory</h2>
         </div>
         <div className="container">

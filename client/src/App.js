@@ -24,11 +24,16 @@ import Cart from "./layout/main/cart";
 import RetrievePassword from "./layout/main/retrievePassword";
 import ResetPassword from "./layout/main/resetPassword";
 import CatOrderConvertor from "./layout/main/catConvertor";
+import IdleTimerContainer from "./services/idleTimerContainer";
 
 function App() {
   const user = getCurrentUser();
   return (
     <div className="App">
+
+      {/* This logs out idle users */}
+      <IdleTimerContainer/>
+
       <Header user={user} />
       <ToastContainer />
 
