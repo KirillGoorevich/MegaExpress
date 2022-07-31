@@ -6,9 +6,15 @@ const chalk = require("chalk");
 const { generateBizNum } = require("./services/generateBizNum");
 const { validateCard } = require("./cardValidation");
 const User = require("../Users/userModel");
+const rateLimit = require('express-rate-limit');
+
+const limiter = rateLimit({
+	windowMs: 24 * 60 * 60 * 1000, // 24 Hours
+	max: 100*4*24, // Limit each IP to 9600 requests per `window` (here, per 24 hours)
+});
 
 /********** Get All Cards **********/
-router.get("/cards", async (req, res) => {
+router.get("/cards",limiter, async (req, res) => {
   try {
     const cards = await Card.find();
     return res.send(cards);
@@ -19,7 +25,7 @@ router.get("/cards", async (req, res) => {
 });
 
 /********** Get One Card **********/
-router.get("/card/:id", async (req, res) => {
+router.get("/card/:id",limiter, async (req, res) => {
   try {
     const cardID = req.params.id;
     const card = await Card.findOne({ _id: cardID });
@@ -31,7 +37,7 @@ router.get("/card/:id", async (req, res) => {
 });
 
 /********** Get My Cards **********/
-router.get("/my-cards", auth, async (req, res) => {
+router.get("/my-cards",limiter, auth, async (req, res) => {
   try {
     let user = req.user;
     if (!user.biz) return res.status(403).json("Un authorize user!");
@@ -44,7 +50,7 @@ router.get("/my-cards", auth, async (req, res) => {
 });
 
 /********** Create Card **********/
-router.post("/", auth, async (req, res) => {
+router.post("/",limiter, auth, async (req, res) => {
   try {
     const user = req.user;
 
@@ -143,7 +149,7 @@ router.post("/", auth, async (req, res) => {
 });
 
 /********** Edit Card **********/
-router.put("/:id", auth, async (req, res) => {
+router.put("/:id",limiter, auth, async (req, res) => {
   try {
     let user = req.user;
     if (!user.biz) {
@@ -243,7 +249,7 @@ router.put("/:id", auth, async (req, res) => {
 });
 
 /********** Delete Card **********/
-router.delete("/:id", auth, async (req, res) => {
+router.delete("/:id",limiter, auth, async (req, res) => {
   try {
     let user = req.user;
     if (user.isAdmin) {
@@ -280,7 +286,7 @@ router.delete("/:id", auth, async (req, res) => {
 });
 /********** Like/Dislike Card **********/
 
-router.patch("/card-like/:id", auth, async (req, res) => {
+router.patch("/card-like/:id", auth,limiter, async (req, res) => {
   try {
     // console.log(req.params.id);
     const user = req.user;
@@ -306,7 +312,7 @@ router.patch("/card-like/:id", auth, async (req, res) => {
 
 /********** Add/Remove to Cart **********/
 
-router.patch("/cart/:id", auth, async (req, res) => {
+router.patch("/cart/:id",limiter, auth, async (req, res) => {
   try {
     // console.log(req.params.id);
     const user = req.user;

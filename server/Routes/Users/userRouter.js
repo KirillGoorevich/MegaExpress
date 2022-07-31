@@ -10,8 +10,14 @@ const router = require("express").Router();
 const User = require("./userModel");
 const auth = require("../../middlewares/authorization");
 const chalk = require("chalk");
+const rateLimit = require('express-rate-limit');
 
-router.post("/register", async (req, res) => {
+const limiter = rateLimit({
+	windowMs: 24 * 60 * 60 * 1000, // 24 Hours
+	max: 100*4*24, // Limit each IP to 9600 requests per `window` (here, per 24 hours)
+});
+
+router.post("/register",limiter, async (req, res) => {
   const { error } = validateRegistration(req.body);
   if (error) {
     console.log(chalk.redBright(error.details[0].message));
@@ -33,7 +39,7 @@ router.post("/register", async (req, res) => {
   res.send(_.pick(user, ["_id", "name", "email"]));
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login",limiter, async (req, res) => {
   const { error } = validateSignin(req.body);
   if (error) {
     console.log(chalk.redBright(error.details[0].message));
@@ -57,7 +63,7 @@ router.post("/login", async (req, res) => {
   });
 });
 
-router.get("/userInfo", auth, (req, res) => {
+router.get("/userInfo",limiter, auth, (req, res) => {
   let user = req.user;
 
   User.findById(user._id)
@@ -67,7 +73,7 @@ router.get("/userInfo", auth, (req, res) => {
 });
 
 //reset password
-router.post("/reset", async (req, res) => {
+router.post("/reset",limiter, async (req, res) => {
   try{
     let user = await User.findOne({ email: req.body.email });
     if(user.isAdmin){

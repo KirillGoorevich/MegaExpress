@@ -6,10 +6,16 @@ const chalk = require("chalk");
 const User = require("../Users/userModel");
 const { Order } = require("./orderModel")
 const { validateOrder } = require("./orderValidation");
+const rateLimit = require('express-rate-limit');
+
+const limiter = rateLimit({
+	windowMs: 24 * 60 * 60 * 1000, // 24 Hours
+	max: 100*4*24, // Limit each IP to 9600 requests per `window` (here, per 24 hours)
+});
 
 
 /********** Create Order **********/
-router.post("/", auth, async (req, res) => {
+router.post("/",limiter, auth, async (req, res) => {
   try {
     const user = req.user;
 
@@ -69,7 +75,7 @@ router.post("/", auth, async (req, res) => {
 });
 
 /********** Get All Orders **********/
-router.get("/orders", async (req, res) => {
+router.get("/orders",limiter, async (req, res) => {
   try {
     const orders = await Order.find();
     return res.send(orders);
