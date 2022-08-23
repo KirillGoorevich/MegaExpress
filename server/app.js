@@ -12,6 +12,13 @@ const chalk = require("chalk");
 const morgan = require("morgan");
 const cors = require("cors");
 
+//upload images above 1mb
+//this has to be used before app.use(express.json()); otherwise it doesn't work
+const bodyParser = require('body-parser');
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
+
+
 app.use(morgan(chalk.cyan(":method :url :status :response-time ms")));
 app.use(cors());
 app.use(express.json());

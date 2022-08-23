@@ -1,11 +1,9 @@
 import PropTypes from "prop-types";
-import { getCurrentUser } from "../../../services/userService";
 import Order from "./order"
 
-const Orders = ({ orders }) => {
+const Orders = ({ orders,handleDelete,cur_user }) => {
   if (!orders.length) return <div>No Orders In The State Object...</div>;
 
-  const user = getCurrentUser();
 
   return (
     <div className="row">
@@ -13,7 +11,8 @@ const Orders = ({ orders }) => {
         <Order
           key={i}
           order={order}
-          user={user}
+          cur_user={cur_user}
+          handleDelete={handleDelete}
         />
       ))}
     </div>
@@ -22,6 +21,7 @@ const Orders = ({ orders }) => {
 
 Orders.propTypes = {
   orders: PropTypes.array.isRequired,
+  handleDelete: PropTypes.func,
 };
 
 export default Orders;

@@ -85,5 +85,30 @@ router.get("/orders",limiter, async (req, res) => {
   }
 });
 
+/********** Delete Order **********/
+router.delete("/:id",limiter, auth, async (req, res) => {
+  try {
+    let user = req.user;
+    if (user.isAdmin) {
+      let foundOrder = await Order.findOne({ _id: req.params.id });
+      let orderOwnerId = foundOrder.user_id;
+      let order = await Order.findOneAndRemove({
+        _id: req.params.id,
+        user_id: orderOwnerId,
+      });
+      return res.send(order);
+    }
+    if (!user.isAdmin) {
+      console.log(
+        chalk.redBright("A non-admin user attempted to delete a card!")
+      );
+      return res.status(403).json("You are not authorized to delete this order!");
+    }
+  } catch (error) {
+    console.log(chalk.redBright("Could not delete order:", error.message));
+    return res.status(500).send(error.message);
+  }
+});
+
 
 module.exports = router;

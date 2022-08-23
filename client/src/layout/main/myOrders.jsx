@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import PageHeader from "../common/pageHeader";
 import { Navigate } from "react-router-dom";
-import DisplayModes from "../common/DisplayModes/displayMode";
 import { getOrders } from "../../services/orderService"
+import OrderDisplayModes from "../common/Orders/orderDisplayModes";
 
 class MyOrders extends Component {
   state = {
     orders: [],
     isMount: false,
-    display: "orders",
+    display: "order-cards",
 
   };
 
@@ -45,8 +45,8 @@ class MyOrders extends Component {
         />
         <div className="container">
           <div>
-            <DisplayModes
-              cards={orders}
+            <OrderDisplayModes
+              orders={orders}
               display={display}
             />
           </div>

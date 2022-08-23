@@ -25,6 +25,9 @@ import RetrievePassword from "./layout/main/retrievePassword";
 import ResetPassword from "./layout/main/resetPassword";
 import CatOrderConvertor from "./layout/main/catConvertor";
 import IdleTimerContainer from "./services/idleTimerContainer";
+import UserManagementInterface from "./layout/main/userManagementInterface"
+import OrderManagement from "./layout/main/orderManagement";
+import MyAccount from "./layout/main/myAccount";
 
 function App() {
   const user = getCurrentUser();
@@ -78,6 +81,18 @@ function App() {
           <Route
             path="/cat-order-converter/"
             element={<CatOrderConvertor/>}
+          />
+          <Route
+            path="/user-management-interface"
+            element={<UserManagementInterface user={user} />}
+          />
+          <Route
+            path="/order-management"
+            element={<OrderManagement user={user} />}
+          />
+          <Route
+          path="/my-account"
+          element={<MyAccount user={user} />}
           />
         </Routes>
       </main>

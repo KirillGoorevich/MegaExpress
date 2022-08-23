@@ -43,7 +43,6 @@ class MyProducts extends CardExtends {
           </Link>
           <br />
           <br />
-
           <div>
             <DisplayControllers
               display={display}
@@ -56,12 +55,6 @@ class MyProducts extends CardExtends {
               display={display}
             />
           </div>
-          {/* depricated */}
-          {/* <Cards
-            cards={cards}
-            handleDelete={this.handleDelete}
-            changeLikeStatus={this.changeLikeStatus}
-          /> */}
         </div>
       </React.Fragment>
     );

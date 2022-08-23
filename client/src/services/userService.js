@@ -26,4 +26,17 @@ export const logout = () => {
   return (window.location = "/");
 };
 
+export const getUsers = () => http.get(`${apiUrl}/users/users`);
+
 export const getJWT = () => localStorage.getItem("token");
+
+export const deleteUser = (userId) => http.delete(`${apiUrl}/users/${userId}`);
+
+export const makeUserAdmin = (userId) => http.put(`${apiUrl}/users/${userId}`);
+
+export const curUserInfo = () => http.get(`${apiUrl}/users/userInfo`);
+
+export const changeProfilePic = (formData) => http.post(`${apiUrl}/users/changeProfilePic`, formData);
+
+export const getProfilePic = (userId) =>http.get(`${apiUrl}/users/getProfilePic/${userId}`)
+

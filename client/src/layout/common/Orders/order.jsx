@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Order = ({ order }) => {
+const Order = ({ order,cur_user,handleDelete }) => {
   const _id = order.card.cardId;
   const url = order.card.image.url;
   const alt = order.card.image.alt;
@@ -51,7 +51,10 @@ const Order = ({ order }) => {
           <p>Price per unit: US ${order.card.price}</p>
           <p>Shipping per unit: US ${order.card.ship}</p>
           <p>Quantity: {order.data.selectedQuantity}</p>
-          <p>Total: US ${order.data.selectedQuantity*(order.card.price+order.card.ship)}</p>
+          <p>Total: US ${(order.data.selectedQuantity*(order.card.price+order.card.ship)).toFixed(2)}</p>
+          {cur_user.isAdmin && <span className="btn btn-danger" onClick={() => handleDelete(order._id)}>
+            Delete Order
+          </span>}
         </div>
         <div>
           <Link to={`/product-details/${_id}`}>
@@ -66,6 +69,8 @@ const Order = ({ order }) => {
 
 Order.propTypes = {
   order: PropTypes.object.isRequired,
+  user: PropTypes.object,
+  handleDelete: PropTypes.func,
 };
 
 export default Order;

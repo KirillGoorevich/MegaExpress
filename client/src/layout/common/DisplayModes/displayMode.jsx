@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import Cards from "../Cards/cards";
 import TableRow from "../Cards/tableRow.jsx.jsx";
 import TableColumn from "../Cards/tableColumn";
-import Orders from "../Orders/orders";
 
 const DisplayModes = ({ cards, display, changeLikeStatus, handleDelete, removeCartCards}) => {
   if (!cards.length) return <div>No Products</div>;
@@ -17,12 +16,6 @@ const DisplayModes = ({ cards, display, changeLikeStatus, handleDelete, removeCa
     );
   if (display === "table-row") return <TableRow cards={cards} />;
   if (display === "table-column") return <TableColumn cards={cards} />;
-  if(display === "orders")
-      return(
-        <Orders
-        orders={cards}
-      />
-    );
   if (display === "cart")
       return (
         <Cards
