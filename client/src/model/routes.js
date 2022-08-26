@@ -29,7 +29,7 @@ const ROUTES_DEF = {
   [ROUTES.SIGNUP]: { to: "/signup", label: "Signup" },
   [ROUTES.SELLER_REGISTER]: { to: "/seller-register", label: "Seller Signup" },
   [ROUTES.MY_ORDERS]: { to: "/my-orders", label: "My Orders" },
-  [ROUTES.CART]: { to: "/cart", label: <FontAwesomeIcon icon={faCartShopping}/> },
+  [ROUTES.CART]: { to: "/cart", label: <span>Shopping Cart <FontAwesomeIcon icon={faCartShopping}/></span> },
   [ROUTES.User_Management_Interface]: { to: "/user-management-interface", label: "User Management" },
   [ROUTES.Order_Management]: { to: "/order-management", label: "Order Management" },
   [ROUTES.My_Account]: { to: "/my-account", label: "My Account" },

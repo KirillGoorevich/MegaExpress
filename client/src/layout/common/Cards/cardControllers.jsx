@@ -53,7 +53,7 @@ const CardControllers = ({ card, user, handleDelete, changeLikeStatus , display 
     <div>
     {cart && (
         <div style={{display: "flex",justifyContent: "center",marginTop: "1vh"}}>
-          <span className="btn" onClick={() => removeCartCards(card._id, user)}> <CartXFill style={{fontSize:"30px"}} /></span>
+          <span className="btn" onClick={() => removeCartCards(card._id, user)}>Remove from Cart<CartXFill style={{fontSize:"30px"}} /></span>
         </div>
       )}
     </div>
