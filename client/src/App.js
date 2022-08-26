@@ -28,8 +28,11 @@ import IdleTimerContainer from "./services/idleTimerContainer";
 import UserManagementInterface from "./layout/main/userManagementInterface"
 import OrderManagement from "./layout/main/orderManagement";
 import MyAccount from "./layout/main/myAccount";
+import AccessibilityContainer from "./layout/main/accessability";
+
 
 function App() {
+  <AccessibilityContainer/>
   const user = getCurrentUser();
   return (
     <div className="App">
