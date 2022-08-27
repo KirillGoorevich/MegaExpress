@@ -6,7 +6,7 @@ const rateLimit = require('express-rate-limit');
 
 const usersRouter = require("./Routes/Users/userRouter");
 const cardsRouter = require("./Routes/Cards/cardsRouter");
-const ordersRouter = require("./Routes/Orders/OrderRouter");
+const ordersRouter = require("./Routes/Orders/orderRouter");
 
 const chalk = require("chalk");
 const morgan = require("morgan");
