@@ -16,7 +16,7 @@ const RightNavigation = ({ user }) => {
       {user && <NavRouteLink route={ROUTES.CART} />}
       {user && <NavRouteLink route={ROUTES.MY_ORDERS} />}
       {user && <NavRouteLink route={ROUTES.LOGOUT} />}
-      {<NavRouteLink route={ROUTES.My_Account} />}
+      {user && <NavRouteLink route={ROUTES.My_Account} />}
     </ul>
   );
 };
