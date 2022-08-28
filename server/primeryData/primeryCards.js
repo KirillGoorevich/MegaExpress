@@ -337,22 +337,22 @@ const data = {
       color2: "Green",
       image2: {
         url: "https://ae01.alicdn.com/kf/Hfa8df64cb420431a90796f3e1fe76b46b/Portable-319-2-4Ghz-Wireless-Mouse-Adjustable-1200DPI-Optical-Gaming-Mouse-Wireless-Home-Office-Game-Mice.jpg_640x640.jpg",
-        alt: "Fish Hoodie",
+        alt: "Green Mouse",
       },
       color3: "Yellow",
       image3: {
         url: "https://ae01.alicdn.com/kf/H6da454a5bf184c7ebe0c5f9d48a41c3fA/Portable-319-2-4Ghz-Wireless-Mouse-Adjustable-1200DPI-Optical-Gaming-Mouse-Wireless-Home-Office-Game-Mice.jpg_640x640.jpg",
-        alt: "Blue Flame Hoodie",
+        alt: "Yellow Mouse",
       },
       color4: "Blue",
       image4: {
         url: "https://ae01.alicdn.com/kf/Hbe4946a9ff4d4583a41b64c07d7edbc3Y/Portable-319-2-4Ghz-Wireless-Mouse-Adjustable-1200DPI-Optical-Gaming-Mouse-Wireless-Home-Office-Game-Mice.jpg_640x640.jpg",
-        alt: "Checkered Hoodie",
+        alt: "Blue Mouse",
       },
       color5: "Grey",
       image5: {
         url: "https://ae01.alicdn.com/kf/Hf5b9de556c304bf3a6d02b68dcc916f90/Portable-319-2-4Ghz-Wireless-Mouse-Adjustable-1200DPI-Optical-Gaming-Mouse-Wireless-Home-Office-Game-Mice.jpg_640x640.jpg",
-        alt: "Acid Hoodie",
+        alt: "Grey Mouse",
       },
       quantity: 1530,
       cart: [],
